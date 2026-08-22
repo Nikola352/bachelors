@@ -1,12 +1,12 @@
-#let format_strane = "iso-b5"         // могуће вредности: iso-b5, a4
-#let naslov = "Шаблон и упутство за писање завршних радова"
-#let autor = "Уписати име и презиме"
+#let format_strane = "a4"         // могуће вредности: iso-b5, a4
+#let naslov = "Колаборативна " + [_Jupyter_] + " биљежница са подршком за уређивање и извршавање у реалном времену"
+#let autor = "Никола Јоловић"
 
 // На енглеском
-#let naslov_eng = "Template and tutorial for thesis preparation"
-#let autor_eng = "Upisati ime i prezime na latinici"
+#let naslov_eng = "A Collaborative Jupyter Notebook with real-time editing and execution support"
+#let autor_eng = "Nikola Jolović"
 
-#let indeks = "Уписати индекс"
+#let indeks = "SV9/2022"
 
 // Име и презиме ментора
 #let mentor = "Игор Дејановић"
@@ -16,23 +16,24 @@
 // Скинути коментаре са одговарајућих линија
 #let studijski_program = "Софтверско инжењерство и информационе технологије"
 //#let studijski_program = "Рачунарство и аутоматика"
-#let stepen = "Мастер академске студије"
-//#let stepen = "Основне академске студије"
+//#let stepen = "Мастер академске студије"
+#let stepen = "Основне академске студије"
 
 #let godina = [#datetime.today().year()]
 
-#let kljucne_reci = "Шаблон, завршни рад, упутство"
+#let kljucne_reci = "Jupyter биљежница, сарадња у реалном времену, " + [_CRDT_] + ", Операционе трансформације"
 #let apstrakt = [
-     Овај документ представља упутство за писање завршних радова на Факултету
-     техничких наука Универзитета у Новом Саду. У исто време је и шаблон за Typst.
+     Овај рад представља студију случаја софтвера _Crab Collab_, колаборативне _Jupyter_ биљежнице. _Crab Collab_ омогућава да више корисника уређују један документ у реалном времену, уз одржавање конзистентног погледа за све кориснике.
+     Архитектура са централним сервером омогућава дијељење окружења за извршавање кода и пружа гаранције потребне за синхронизацију стања.
+     Представљено рјешење користи структуру документа типа биљежнице да комбинује приступе за разрјешавање конфликата засноване на операционим трансформацијама и фракционом индексирању ради постизања конзистентности.
 ]
 
 // На енглеском
-#let kljucne_reci_eng = "Template, thesis, tutorial"
+#let kljucne_reci_eng = "Jupyter notebook, real-time collaboration, CRDT, Operational transformation"
 #let apstrakt_eng = [
-     This document provides guidelines for writing final theses at the Faculty
-     of Technical Sciences, University of Novi Sad. At the same time, it serves
-     as a Typst template.
+     This thesis presents a case study of _Crab Collab_, a collaborative _Jupyter_ notebook. _Crab Collab_ allows multiple users to edit one document in real-time, while maintaining a consistent view for all users.
+     Architecture with a central server allows sharing a code execution environment and provides guarantees required for state synchronization.
+     The presented solution utilizes notebook document structure to combine conflict resolution strategies based on operational transformations and fractional indexing to achieve consistency.
 ]
 
 // TODO: Текст задатка добијате од ментора. Заменити доле #lorem(100) са текстом задатка.
