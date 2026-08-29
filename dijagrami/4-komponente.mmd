@@ -1,0 +1,45 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'linear'}}}%%
+flowchart TB
+    subgraph CLIENT["Клијент"]
+        UI["Кориснички<br/>интерфејс"]
+        SYNC["Слој<br/>синхронизације"]
+        STORE["Складишта<br/>стања"]
+        ENGINE["Механизам<br/>усклађивања"]
+        WSC["WebSocket<br/>клијент"]
+
+        UI <--> SYNC
+        UI <--> STORE
+        SYNC <--> STORE
+        SYNC <--> WSC
+        STORE <--> ENGINE
+    end
+
+    subgraph SERVER["Сервер"]
+        COMM["Слој<br/>комуникације"]
+        SESS["Стање<br/>сесије"]
+        FOCUS["Стање<br/>фокуса"]
+        NB["Стање<br/>биљежнице"]
+        EQ["Ред за<br/>извршавање"]
+        KC["Клијент<br/>кернела"]
+
+        COMM <--> SESS
+        COMM <--> FOCUS
+        COMM <--> EQ
+        COMM <--> NB
+        EQ --> NB
+        EQ <--> KC
+    end
+
+    CORE["Језгро за рјешавање конфликата"]
+    K(["Кернел"])
+
+    WSC <-->|WebSocket| COMM
+    ENGINE -->|WebAssembly| CORE
+    NB -->|изворно| CORE
+    KC <-->|ZeroMQ| K
+
+    class K external
+    class CORE shared
+    classDef external stroke-dasharray: 12 8,stroke-width:1.5px
+    classDef shared stroke-width:2px
+    classDef default stroke-width:1.5px

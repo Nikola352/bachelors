@@ -1,0 +1,33 @@
+%%{init: {'theme': 'neutral', 'class': {'hideEmptyMembersBox': true}}}%%
+classDiagram
+    direction LR
+
+    class Notebook["Биљежница"]
+
+    class Cell["Ћелија"] {
+        +идентификатор
+        +садржај
+    }
+
+    class MdCell["Текстуална ћелија"]
+
+    class CodeCell["Ћелија кода"] {
+        +редни број извршавања
+    }
+
+    class Output["Излаз ћелије"] {
+        +текст
+        +редни број извршавања
+    }
+
+    class User["Учесник"] {
+        +идентификатор
+        +име
+        +позиција курсора
+    }
+
+    Notebook "1" *-- "*" Cell : уређен низ
+    Cell <|-- MdCell
+    Cell <|-- CodeCell
+    CodeCell "1" *-- "*" Output
+    User "*" --> "0..1" Cell : фокус

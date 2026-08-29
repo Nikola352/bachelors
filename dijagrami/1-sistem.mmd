@@ -1,0 +1,23 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'linear'}}}%%
+flowchart LR
+    subgraph SYS["Систем (Crab Collab)"]
+        subgraph CLIENTS[" "]
+            direction TB
+            C1["Клијент 1<br/>(прегледач)"]
+            Cdots["⋮"]
+            C2["Клијент N<br/>(прегледач)"]
+        end
+        S["Сервер"]
+        C1 <-->|WebSocket| S
+        C2 <-->|WebSocket| S
+    end
+
+    K(["Кернел<br/>(Пајтон процес)"])
+    S <-->|"ZeroMQ<br/>(Jupyter протокол)"| K
+
+    class K external
+    class Cdots dots
+    classDef external stroke-dasharray: 12 8,stroke-width:1.5px
+    classDef dots fill:none,stroke:none,font-size:22px
+    classDef default stroke-width:1.5px
+    style CLIENTS fill:none,stroke:none
