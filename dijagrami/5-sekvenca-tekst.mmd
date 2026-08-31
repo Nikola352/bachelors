@@ -1,0 +1,27 @@
+%%{init: {'theme': 'neutral', 'themeVariables': {'noteBkgColor': '#f0f0f0', 'noteTextColor': '#000000', 'noteBorderColor': '#999999'}}}%%
+sequenceDiagram
+    participant A as Клијент А
+    participant S as Сервер
+    participant B as Клијент Б
+
+    Note over A,B: ћелија на верзији n
+
+    A ->> A: локална примјена операције a
+    B ->> B: локална примјена операције b
+
+    A ->> S: text_edit (a, основа n)
+    B ->> S: text_edit (b, основа n)
+
+    S ->> S: примјена a<br/>верзија ћелије n+1
+    S -->> A: потврда (a, верзија n+1)
+    S -->> B: text_edit (a, верзија n+1)
+
+    B ->> B: трансформација a у односу<br/>на непотврђену операцију b
+
+    S ->> S: трансформација b кроз историју → b'<br/>примјена b'<br/>верзија ћелије n+2
+    S -->> A: text_edit (b', верзија n+2)
+    S -->> B: потврда (b', верзија n+2)
+
+    A ->> A: примјена b'
+
+    Note over A,B: ћелија на верзији n+2, стање идентично код свих
