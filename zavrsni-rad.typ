@@ -73,8 +73,7 @@
 #include "poglavlja/4-zahtjevi.typ"
 #include "poglavlja/5-arhitektura.typ"
 #include "poglavlja/6-implementacija.typ"
-#include "poglavlja/7-ogranicenja.typ"
-#include "poglavlja/8-zakljucak.typ"
+#include "poglavlja/7-zakljucak.typ"
 
 
 #set heading(numbering: none)
