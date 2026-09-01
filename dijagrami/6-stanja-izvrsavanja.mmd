@@ -1,0 +1,16 @@
+%%{init: {'theme': 'neutral'}}%%
+stateDiagram-v2
+    direction LR
+
+    F: Слободна
+    P: У реду за извршавање
+    E: У извршавању
+
+    [*] --> F
+
+    F --> P: захтјев прихваћен<br/>(execute_request)
+    P --> E: status: busy
+    E --> F: status: idle
+
+    P --> P: нови захтјев одбијен
+    E --> E: нови захтјев одбијен

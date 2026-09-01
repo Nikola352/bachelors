@@ -1,0 +1,33 @@
+%%{init: {'theme': 'neutral', 'themeVariables': {'noteBkgColor': '#f0f0f0', 'noteTextColor': '#000000', 'noteBorderColor': '#999999'}}}%%
+sequenceDiagram
+    participant C as Клијент
+    participant S as Сервер
+    participant K as Кернел
+
+    Note over S: Све поруке о извршавању<br/>сервер шаље свим учесницима.
+
+    C ->> S: execute_cell (идентификатор ћелије)
+    S ->> S: очитавање садржаја ћелије<br/>провјера захтјева који већ чека
+
+    S ->> K: execute_request (shell)
+    S -->> C: execution_pending
+
+    K -->> S: status: busy (iopub)
+    S ->> S: брисање претходног излаза
+    S -->> C: execution_started
+
+    loop за сваки излаз
+        K -->> S: stream / execute_result / error (iopub)
+        S ->> S: уписивање излаза у стање биљежнице
+        S -->> C: cell_output
+    end
+
+    K -->> S: execute_reply (shell)
+    S ->> S: уписивање редног броја извршавања
+    S -->> C: execution_finished
+
+    K -->> S: status: idle (iopub)
+    S ->> S: уклањање захтјева из евиденције
+    S -->> C: cell_idle
+
+    Note over S,K: Поруке са канала iopub повезују се са ћелијом<br/>преко идентификатора родитељске поруке.
