@@ -24,6 +24,13 @@
 #show ref: set text(blue)
 #show heading: set text(hyphenate: false)
 
+#show raw.where(block: false): it => highlight(
+    fill: rgb("#f0f1f4"),
+    extent: 0.16em,
+    radius: 2pt,
+    text(fill: rgb("#24292f"), size: 0.93em, it),
+)
+
 #show figure.where(
   kind: table
 ): set figure.caption(position: top)
