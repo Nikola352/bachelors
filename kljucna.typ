@@ -178,7 +178,7 @@
   place(left + top,
       dy: 24.8%,
       dx: left_edge_eng,
-      rect(align(left + horizon, mentor_eng + ", Phd., " + mentor_zvanje_eng),
+      rect(align(left + horizon, mentor_eng + ", PhD, " + mentor_zvanje_eng),
           fill: clr, width: 59%, height: 12pt)
   )
   place(left + top,
@@ -269,19 +269,19 @@
       dy: 88.7%,
       dx: left_edge_eng_komisija,
       rect(align(left + horizon, komisija_predsednik_eng
-      + ", Phd., " + komisija_predsednik_zvanje_eng),
+      + ", PhD, " + komisija_predsednik_zvanje_eng),
           fill: clr, width: 38%, height: 12pt)
   )
   place(left + top,
       dy: 91%,
       dx: left_edge_eng_komisija,
-      rect(align(left + horizon, komisija_clan_eng + ", Phd., " + komisija_clan_zvanje_eng),
+      rect(align(left + horizon, komisija_clan_eng + ", PhD, " + komisija_clan_zvanje_eng),
           fill: clr, width: 38%, height: 12pt)
   )
   place(left + top,
       dy: 95.65%,
       dx: left_edge_eng_komisija,
-      rect(align(left + horizon, mentor_eng + ", Phd., " + mentor_zvanje_eng),
+      rect(align(left + horizon, mentor_eng + ", PhD, " + mentor_zvanje_eng),
           fill: clr, width: 38%, height: 12pt)
   )
 })
