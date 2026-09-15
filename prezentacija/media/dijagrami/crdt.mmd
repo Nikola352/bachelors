@@ -1,0 +1,7 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'basis'}, 'themeVariables': {'fontSize': '22px'}}}%%
+flowchart LR
+    A0["А: {🍎}"] -->|"додај 🍍"| A1["{🍎, 🍍}"] -->|"прими 🍒"| A2["{🍎, 🍍, 🍒}"]
+    B0["Б: {🍎}"] -->|"додај 🍒"| B1["{🍎, 🍒}"] -->|"прими 🍍"| B2["{🍎, 🍍, 🍒}"]
+
+    classDef good fill:#e2f5e2,stroke:#2a2,color:#060
+    class A2,B2 good

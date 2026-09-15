@@ -1,0 +1,13 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'basis'}, 'themeVariables': {'fontSize': '22px'}}}%%
+flowchart TD
+    S["абв"]
+    S -->|"А: уметни Г на 0"| A["Габв"]
+    S -->|"Б: обриши 1 (б)"| B["ав"]
+    A -->|"обриши 1"| X["Гбв ✗"]
+    A -->|"обриши 2 (трансформисано)"| OK["Гав ✓"]
+    B -->|"уметни Г на 0"| OK
+
+    classDef bad fill:#fde2e2,stroke:#d33,color:#900
+    classDef good fill:#e2f5e2,stroke:#2a2,color:#060
+    class X bad
+    class OK good

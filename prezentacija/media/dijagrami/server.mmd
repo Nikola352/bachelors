@@ -1,0 +1,9 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'basis'}, 'themeVariables': {'fontSize': '22px'}}}%%
+flowchart LR
+    A["Клијент А"] -->|"a"| S(("Сервер"))
+    B["Клијент Б"] -->|"b"| S
+    C["Клијент В"] -->|"c"| S
+    S --> O["1. b<br/>2. a<br/>3. c"]
+
+    classDef good fill:#e2f5e2,stroke:#2a2,color:#060
+    class O good
